@@ -1,0 +1,16 @@
+//
+   Created by scottbaron on 11/14/16.
+head
+    script(src="./js/bundle.js")
+
+body
+    form.log(action='' method='post' class='pure-form pure-form-aligned')
+        h2 On Draft Brewery Log-in
+        input.Email(type='text', placeholder='E-mail')
+        br
+        input.Password(type='password', placeholder='Password')
+        hr
+        button.login(type='submit', value='Login' class='pure-button') Log-in
+        br
+        button.login(class='pure-button') Create Account
+        a.frgtpass(href='') Forgot Password?

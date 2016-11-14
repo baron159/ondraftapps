@@ -1,0 +1,42 @@
+.log {
+    margin: auto;
+    padding: 10%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.7);
+    border: 2px white solid;
+    border-radius: 5px;
+    width: 25%;
+    height: 50%;
+}
+
+.Email, .Password {
+    margin-bottom: 5px;
+    border: 2px solid white;
+    border-radius: 5px;
+    color:#fff;
+    background-color: transparent;
+    padding: 5px;
+}
+
+h2 {
+    color: rgb(223, 117, 20);;
+}
+
+.frgtpass, .account {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.login {
+    color: #ffffff;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background: rgb(223, 117, 20);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+a {
+    color: rgb(223, 117, 20);
+    text-decoration: none;
+}
