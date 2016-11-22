@@ -6,4 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('sign-in');
 });
 
+router.get('/registration', function (req, res) {
+    res.render('userRegistration');
+});
+
 module.exports = router;

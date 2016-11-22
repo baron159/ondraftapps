@@ -1,0 +1,43 @@
+//
+   Created by scottbaron on 11/22/16.
+head
+    script(src="./js/bundle.js")
+body
+    h2 On Draft App Brewery Registration
+    div()
+        form(action='' method='POST' class='pure-form')
+            fieldset(class='pure-group')
+                legend Sign-in Information
+                input.pure-input-1-4(type='email' id='userEmail' placeholder='Email')
+                input.pure-input-1-4(type='password' id='userPass', placeholder='Password')
+                input.pure-input-1-4(type='password' id='userPassCheck', placeholder='Re-enter Password')
+            fieldset(class='pure-group')
+                legend Personal Information
+                input.pure-input-1-4(type='text' id='userFirstName' placeholder='First Name')
+                input.pure-input-1-4(type='text' id='userLastName' placeholder='Last Name')
+                input.pure-input-1-4(type='tel' id='userPhoneNumber' placeholder='Phone Number')
+            fieldset(class='pure-group')
+                legend Brewery Profile
+                input.pure-input-1-3(type='text' id='breweryName' placeholder='Brewery Name')
+                textarea.pure-input-1-3(id='brewerySum' placeholder='Brewery Summary ex- Family owned since 1995')
+                textarea.pure-input-1-3(id='breweryFeatures' placeholder='Brewery Amenities ex- Dog Friendly, Outside Sitting, Food')
+                input.pure-input-1-3(type='text' id='breweryAddress1' placeholder='Brewery Address Line 1')
+                input.pure-input-1-3(type='text' id='breweryAddress2' placeholder='Brewery Address Line 2')
+                div.pure-input-1-3
+                    div.pure-u-3-5
+                        input.pure-input-1(type='text' id='breweryCity' placeholder='City')
+                    div.pure-u-1-5
+                        input.pure-input-1(type='text' id='breweryState' placeholder='State' maxlength='2')
+                    div.pure-u-1-5
+                        input.pure-input-1(type='number' id='breweryZip' placeholder='Zip')
+            fieldset(class='pure-group')
+                legend Brewery Open Hours - If Left Blank it will display as CLOSED
+                label Enter hours as hh:mmpm-hh:mmpm (ex- 1:00pm-10:00pm)
+                input.pure-input-1-4(type='text' id='breweryMonday' placeholder='Monday Hours')
+                input.pure-input-1-4(type='text' id='breweryTuesday' placeholder='Tuesday Hours')
+                input.pure-input-1-4(type='text' id='breweryWednesday' placeholder='Wednesday Hours')
+                input.pure-input-1-4(type='text' id='breweryThursday' placeholder='Thursday Hours')
+                input.pure-input-1-4(type='text' id='breweryFriday' placeholder='Friday Hours')
+                input.pure-input-1-4(type='text' id='brewerySaturday' placeholder='Saturday Hours')
+                input.pure-input-1-4(type='text' id='brewerySunday' placeholder='Sunday Hours')
+            button(type='submit' class='pure-button pure-button-primary') Register
