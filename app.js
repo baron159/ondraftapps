@@ -20,6 +20,7 @@ app.set('view engine', 'pug');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -34,14 +35,7 @@ app.use(session({
     }
 }));
 
-app.use(csurf());
-
-app.use(function(req, res, next) {
-    var token = req.csrfToken();
-    res.cookie('XSRF-TOKEN', token);
-    res.locals._csrf = token;
-    next();
-});
+app.use(csrfProtection);
 
 app.use('/', index);
 app.use('/users', users);

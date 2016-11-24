@@ -4,8 +4,10 @@ head
     script(src="./js/bundle.js")
 
 body
-    form.log(action='' method='post' class='pure-form pure-form-aligned')
+    form.log(action='/sign-in' method='post' class='pure-form pure-form-aligned')
+        input(type='hidden', name='_csrf', value=_csrf)
         h2 On Draft Brewery Log-in
+        h4 #{message}
         input.Email(type='text', placeholder='E-mail')
         br
         input.Password(type='password', placeholder='Password')
