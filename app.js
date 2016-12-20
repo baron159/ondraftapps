@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var csurf = require('csurf');
 var csrfProtection = csurf({cookie:true});
 var cookieSession = require('cookie-session');
+var passport = require('passport');
+var flash = require('connect-flash');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -34,6 +36,12 @@ app.use(session({
         secure: true
     }
 }));
+
+require('./lib/passportConfig')(passport);
+
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use(csrfProtection);
 

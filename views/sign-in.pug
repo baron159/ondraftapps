@@ -8,9 +8,9 @@ body
         input(type='hidden', name='_csrf', value=_csrf)
         h2 On Draft Brewery Log-in
         h4 #{message}
-        input.Email(type='text', placeholder='E-mail')
+        input.Email(type='text', placeholder='E-mail', name='userEmail')
         br
-        input.Password(type='password', placeholder='Password')
+        input.Password(type='password', placeholder='Password', name='userPass')
         hr
         button.login(type='submit', value='Login' class='pure-button') Log-in
         br
