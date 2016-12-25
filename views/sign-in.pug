@@ -2,7 +2,6 @@
    Created by scottbaron on 11/14/16.
 head
     script(src="./js/bundle.js")
-
 body
     form.log(action='/sign-in' method='post' class='pure-form pure-form-aligned')
         input(type='hidden', name='_csrf', value=_csrf)
@@ -14,5 +13,5 @@ body
         hr
         button.login(type='submit', value='Login' class='pure-button') Log-in
         br
-        button.login(class='pure-button') Create Account
+        a.login(class='pure-button' href="/registration") Create Account
         a.frgtpass(href='') Forgot Password?

@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express');
 var bcrypt = require('bcrypt');
 var router = express.Router();
@@ -6,7 +8,7 @@ var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.user);
-  res.render('sign-in', {_csrf: req.csrfToken(), message:req.query.message});
+    res.render('sign-in', {_csrf: req.csrfToken(), message:req.query.message});
 });
 
 router.post('/sign-in', function (req, res, next) {
@@ -19,7 +21,7 @@ router.post('/sign-in', function (req, res, next) {
         req.login(user, function (err) {
             if(err)
                 return next(err);
-            return res.send({message:'User Signed in'});
+            return res.redirect('/dashboard/main');
         });
     })(req, res, next);
 });

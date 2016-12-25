@@ -22,6 +22,19 @@ h2 {
     color: rgb(223, 117, 20);;
 }
 
+.menu-height-override{
+    height: auto;
+}
+
+.dashboard_centering {
+    margin: auto;
+}
+
+.dashboard_layout {
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+
 .frgtpass, .account {
     margin-bottom: 5px;
     display: block;
