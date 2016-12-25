@@ -25,18 +25,20 @@ app.set('view engine', 'pug');
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use(logger('dev'));
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({
-    secret: 'onDraftBestApp',
-    cookie: {
-        httpOnly: true,
-        secure: true
-    }
-}));
+// app.use(session({
+//     secret: 'onDraftBestApp',
+//     cookie: {
+//         httpOnly: true,
+//         secure: true
+//     }
+// }));
+app.use(session({secret: 'onDraftBestApp'}));
 
 require('./lib/passportConfig')(passport);
 
@@ -45,7 +47,6 @@ app.use(passport.session());
 app.use(flash());
 
 app.use(csrfProtection);
-
 app.use('/', index);
 app.use('/dashboard', dashboard);
 app.use('/users', users);

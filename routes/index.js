@@ -53,4 +53,17 @@ router.post('/register', function (req, res, next) {
     }
 });
 
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated()) {
+        console.log('isLoggedin');
+        return next();
+    }
+    console.log('is not logged in');
+
+    // if they aren't redirect them to the home page
+    res.redirect('/services/userSignInController/log-in');
+}
+
 module.exports = router;
