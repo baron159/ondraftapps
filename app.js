@@ -13,7 +13,7 @@ var flash = require('connect-flash');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var dashboard = require('./routes/dashboard');
+var dashboard = require('./routes/breweryManagement');
 
 var app = express();
 

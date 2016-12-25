@@ -25,6 +25,7 @@ body
             form(action='/dashboard/brewery-update' method='POST' class='pure-form')
                 input(type='hidden', name='_csrf', value=_csrf)
                 input(type='hidden', name='freshUpdate', value=freshFlag)
+                input(type='hidden', name='breweryId', value=brewery_id)
                 fieldset(class='pure-group')
                     legend Brewery Profile
                     input.pure-input-1-3(type='text' name='breweryName' id='breweryName' placeholder='Brewery Name' value=brewery_name)

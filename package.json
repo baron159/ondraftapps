@@ -19,6 +19,7 @@
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "pg": "^6.1.0",
+    "pg-promise": "^5.5.0",
     "pug": "^2.0.0-beta6",
     "purecss": "^0.6.0",
     "serve-favicon": "~2.3.0",
