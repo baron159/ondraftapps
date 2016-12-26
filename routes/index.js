@@ -8,6 +8,7 @@ var passport = require('passport');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.log(req.user);
+    console.log(process.env.ENV_VARIABLE);
     res.render('sign-in', {_csrf: req.csrfToken(), message:req.query.message});
 });
 
