@@ -26,6 +26,12 @@ router.post('/sign-in', function (req, res, next) {
     })(req, res, next);
 });
 
+router.get('/log-out', function (req, res) {
+    req.logout();
+    res.statusCode = 200;
+    res.redirect('/?message=User+has+been+logged+out+of+the+system');
+});
+
 router.get('/registration', function (req, res) {
     res.render('userRegistration', {_csrf: req.csrfToken(), message:req.query.message});
 });

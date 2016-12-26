@@ -18,7 +18,7 @@ body
                     li.pure-menu-item(class="menu-height-override")
                         a.pure-menu-link(href='#') Payment Info
                     li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='#') Sign Out
+                        a.pure-menu-link(href='/log-out') Sign Out
         #main
             h2 My Brewery Information
             h4 #{message}
@@ -51,5 +51,3 @@ body
                     input.pure-input-1-4(type='text' name='brewerySaturday' placeholder='Saturday Hours' value=brewery_saturday)
                     input.pure-input-1-4(type='text' name='brewerySunday' placeholder='Sunday Hours' value=brewery_sunday)
                 button(type='submit' class='pure-button pure-button-primary' value='userInfo') Update
-
-    //script(src="js/ui.js")

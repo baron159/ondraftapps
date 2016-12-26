@@ -2,17 +2,23 @@
    Created by scottbaron on 12/24/16.
 head
     script(src="./../js/bundle.js")
-body
+body.dashboard_layout
     div(class="dashboard_centering")
-        h2 On Draft App Brewery Registration
+        h2 On Draft App Management Console
         h4 #{message}
     div.pure-g(class="dashboard_layout")
-        div.pure-u-3-4(class="dashboard_centering")
-            div.pure-u-1-4(class="dashboard_centering")
+        div.pure-u-1(class="dashboard_centering")
+            div.pure-u-1-6(class="dashboard_centering")
+            div.pure-u-1-6(class="dashboard_centering")
                 a(class="pure-button pure-button-primary" href="/dashboard/account-info") Account
-            div.pure-u-1-4(class="dashboard_centering")
+            div.pure-u-1-6(class="dashboard_centering")
                 a(class="pure-button pure-button-primary" href="/dashboard/brewery-info") My Brewery
-            div.pure-u-1-4(class="dashboard_centering")
+            div.pure-u-1-6(class="dashboard_centering")
                 a(class="pure-button pure-button-primary" href="#") The Brews
-            div.pure-u-1-4(class="dashboard_centering")
+            div.pure-u-1-6(class="dashboard_centering")
                 a(class="pure-button pure-button-primary" href="#") Payment Details
+            div.pure-u-1-6(class="dashboard_centering")
+
+    div.pure-g(class="dashboard_layout")
+        div.pure-u-1(class="dashboard_centering")
+            a(class="pure-button" href="/log-out") Sign Out

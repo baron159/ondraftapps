@@ -19,7 +19,7 @@ body
                     li.pure-menu-item(class="menu-height-override")
                         a.pure-menu-link(href='#') Payment Info
                     li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='#') Sign Out
+                        a.pure-menu-link(href='/log-out') Sign Out
         #main
             h2 Account Information
             h4 #{message}
@@ -29,7 +29,7 @@ body
                     fieldset(class='pure-group')
                         legend Sign-in Information
                         input.pure-input-1-4(type='email' id='userEmail' name='userEmail' value=userEmail disabled=true)
-                        button(class='pure-button pure-button-primary' id='modalToggleBtn') Change Password
+                        a(class='pure-button pure-button-primary' id='modalToggleBtn') Change Password
                     fieldset(class='pure-group')
                         legend Personal Information
                         input.pure-input-1-4(type='text' name='userFirstName' placeholder='First Name' value=userFirst)
@@ -39,13 +39,21 @@ body
 
         div.modal(id='modalElement')
             div.modal-content()
-                div.modal-header()
-                    h2() Change Your Password
-                    span.close() &times;
+                div.modal-header(class='pure-g')
+                    h3(class='pure-u-22-24') Change Your Password
+                    span.close(class='pure-u-2-24 modal-close') &times;
                 div.modal-body()
-                    form(action='#', method='POST' class='pure-form')
+                    if error !== undefined
+                        script.
+                            document.addEventListener("DOMContentLoaded", function (event) {
+                                errorModalOpen()
+                            });
+                        h5() Passwords Didn't Match, Please try again
+                    form(action='/dashboard/password-update', method='POST' class='pure-form pure-form-stacked')
                         input(type='hidden', name='_csrf', value=_csrf)
-                        input.pure-input-1-4(type='password' id='userPass' name='userPass' placeholder='New Password')
-                        input.pure-input-1-4(type='password' id='userPassCheck' name='passCheck' placeholder='Re-enter Password')
-                        button(type='submit' class='pure-button pure-button-primary' value='passwordChange') Update Password
+                        label(for='userPass' class='modal-content-padding') New Password
+                        input.pure-input-1-2(type='password' id='userPass' name='userPass' placeholder='New Password')
+                        label(for='userPassCheck') Re-enter the New Password
+                        input.pure-input-1-2(type='password' id='userPassCheck' name='passCheck' placeholder='Re-enter Password')
+                        button(type='submit' class='pure-button pure-button-primary modal-content-padding' value='passwordChange') Update Password
     script(src="./../js/basicModal.js")

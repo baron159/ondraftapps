@@ -26,3 +26,8 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 };
+
+// If the form submit response with an error this method should be called with pug's conditionals
+var errorModalOpen = function () {
+    modal.style.display = "block";
+};
