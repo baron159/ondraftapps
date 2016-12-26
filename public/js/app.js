@@ -9,3 +9,4 @@ require('../css/side-menu.css');
 require('../css/side-menu-old-ie.css');
 
 // require('../js/ui');
+// require('../js/basicModal');

@@ -1,0 +1,51 @@
+//
+   Created by scottbaron on 12/25/16.
+
+head
+    script(src="./../js/bundle.js")
+body
+    div(id="layout")
+        // Menu toggle
+        a#menuLink.menu-link(href='#menu')
+            span
+        #menu
+            .pure-menu
+                a.pure-menu-heading(href='/dashboard/main') Dashboard
+                ul.pure-menu-list
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='#') Brews
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='#') Payment Info
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='#') Sign Out
+        #main
+            h2 Account Information
+            h4 #{message}
+            div()
+                form(action='/dashboard/update-account' method='POST' class='pure-form')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    fieldset(class='pure-group')
+                        legend Sign-in Information
+                        input.pure-input-1-4(type='email' id='userEmail' name='userEmail' value=userEmail disabled=true)
+                        button(class='pure-button pure-button-primary' id='modalToggleBtn') Change Password
+                    fieldset(class='pure-group')
+                        legend Personal Information
+                        input.pure-input-1-4(type='text' name='userFirstName' placeholder='First Name' value=userFirst)
+                        input.pure-input-1-4(type='text' name='userLastName' placeholder='Last Name' value=userLast)
+                        input.pure-input-1-4(type='tel' name='userPhone' placeholder='Phone Number' value=userPhone)
+                    button(type='submit' class='pure-button pure-button-primary' value='userInfo') Update Account
+
+        div.modal(id='modalElement')
+            div.modal-content()
+                div.modal-header()
+                    h2() Change Your Password
+                    span.close() &times;
+                div.modal-body()
+                    form(action='#', method='POST' class='pure-form')
+                        input(type='hidden', name='_csrf', value=_csrf)
+                        input.pure-input-1-4(type='password' id='userPass' name='userPass' placeholder='New Password')
+                        input.pure-input-1-4(type='password' id='userPassCheck' name='passCheck' placeholder='Re-enter Password')
+                        button(type='submit' class='pure-button pure-button-primary' value='passwordChange') Update Password
+    script(src="./../js/basicModal.js")

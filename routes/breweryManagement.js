@@ -52,7 +52,6 @@ router.get('/brewery-info', isLoggedIn, function (req, res) {
                         renderData['message'] = req.query['message'];
                         console.log(renderData);
                         res.render('dashboardBreweryView', renderData);
-                        // console.log(result.rows);
                     }
                     else{
                         res.statusCode = 200;
