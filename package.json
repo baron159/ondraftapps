@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "build": "webpack -p --config webpack.prod.config.js"
   },
   "dependencies": {
     "bcrypt": "^1.0.1",
@@ -18,6 +19,7 @@
     "morgan": "~1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "pg": "^6.1.0",
     "pg-promise": "^5.5.0",
     "pug": "^2.0.0-beta6",
