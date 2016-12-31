@@ -1,0 +1,82 @@
+//
+   Created by scottbaron on 12/31/16.
+
+head
+    script(src="./../js/bundle.js")
+body
+    - var selectedRow = {};
+    div(id="layout")
+        // Menu toggle
+        a#menuLink.menu-link(href='#menu')
+            span
+        #menu
+            .pure-menu
+                a.pure-menu-heading(href='/dashboard/main') Dashboard
+                ul.pure-menu-list
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/dashboard/account-info') Account
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='#') Payment Info
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/log-out') Sign Out
+        #main
+            h2 My Brewery Information
+            h4 #{message}
+            div
+                a(class='pure-button pure-button-primary' id='modalToggleBtn') Create New Brew
+            div
+                table.pure-table(class="pure-table-horizontal")
+                    thead()
+                        tr()
+                            th Brew Name
+                            th Brew Style
+                            th ABV
+                            th IBU
+                            th Brew Summary
+                            th Available Now
+                            th Available Start
+                            th Available End
+                            th
+                    tbody
+                        each brew, i in userBrews
+                            tr()
+                                td() #{brew.brew_name}
+                                td() #{brew.brew_style}
+                                td() #{brew.brew_abv}
+                                td() #{brew.brew_ibu}
+                                td() #{brew.brew_summary}
+                                td() #{brew.brew_avaliable_now}
+                                td() #{brew.brew_avaliable_date}
+                                td()
+                                td()
+                                    a(class='pure-button pure-button-primary' data-bar=selectedRow=brew) Edit
+
+        div.modal(id="modalElement")
+            div.modal-content()
+                div.modal-header(class="pure-g")
+                    h3(class="pure-u-22-24") Create a New Brew
+                    span.close(class="pure-u-2-24 modal-close") &times;
+                div.modal-body()
+                    form(action="/dashboard/create-brew" method="POST" class="pure-form pure-form-stacked")
+                        input(type='hidden' name='_csrf' value=_csrf)
+                        label(for='brewName' class='modal-content-padding') Brew Name
+                        input.pure-input-1-2(type='text' id='brewName' name='brewName')
+                        label(for='brewStyle') Brew Style
+                        input.pure-input-1-2(type='text' id='brewStyle' name='brewStyle')
+                        label(for='brewAbv') Brew ABV
+                        input.pure-input-1-2(type='text' id='brewAbv' name='brewAbv')
+                        label(for='brewIbu') Brew IBU
+                        input.pure-input-1-2(type='text' id='brewIbu' name='brewIbu')
+                        label(for='brewSum') Brew Summary
+                        input.pure-input-1-2(type='text' id='brewSum' name='brewSum')
+                        label(for='brewAvaNow') Brew Available Now?
+                        input.pure-input-1-2(type='checkbox' id='brewAvaNow' name='brewAvaNow')
+                        label(for='brewAvaStartDate') Brew Available Starts
+                        input.pure-input-1-2(type='date' id='brewAvaStartDate' name='brewAvaDate')
+                        label(for='brewAvaEndDate') Brew Available Ends
+                        input.pure-input-1-2(type='date' id='brewAvaEndDate' name='brewAvaDate')
+                        button(type='submit' class='pure-button pure-button-primary modal-content-padding' value='brewCreate') Create
+
+    script(src="./../js/basicModal.js")

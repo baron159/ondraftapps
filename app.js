@@ -15,6 +15,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var dashboard = require('./routes/breweryManagement');
 var account = require('./routes/accountManagement');
+var brewPage = require('./routes/brewManagement');
 
 var app = express();
 
@@ -51,6 +52,7 @@ app.use(csrfProtection);
 app.use('/', index);
 app.use('/dashboard', dashboard);
 app.use('/dashboard', account);
+app.use('/dashboard', brewPage);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
