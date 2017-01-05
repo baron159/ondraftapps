@@ -1,0 +1,46 @@
+//
+   Created by scottbaron on 1/5/17.
+
+head
+    script(src="./../js/bundle.js")
+body
+    div(id="layout")
+        // Menu toggle
+        a#menuLink.menu-link(href='#menu')
+            span
+        #menu
+            .pure-menu
+                a.pure-menu-heading(href='/dashboard/main') Dashboard
+                ul.pure-menu-list
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/dashboard/account-info') Account
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='#') Payment Info
+                    li.pure-menu-item(class="menu-height-override")
+                        a.pure-menu-link(href='/log-out') Sign Out
+        #main
+            h2 Brew Edit Form
+            h4 #{message}
+            div.modal-body()
+                form(action="/dashboard/update-brew" method="POST" class="pure-form pure-form-stacked")
+                    input(type='hidden' name='_csrf' value=_csrf)
+                    input(type='hidden' name='brewId' value=brew.brew_id)
+                    label(for='brewName' class='modal-content-padding') Brew Name
+                    input.pure-input-1-2(type='text' id='brewName' name='brewName' value=brew.brew_name)
+                    label(for='brewStyle') Brew Style
+                    input.pure-input-1-2(type='text' id='brewStyle' name='brewStyle' value=brew.brew_style)
+                    label(for='brewAbv') Brew ABV
+                    input.pure-input-1-2(type='text' id='brewAbv' name='brewAbv' value=brew.brew_abv)
+                    label(for='brewIbu') Brew IBU
+                    input.pure-input-1-2(type='text' id='brewIbu' name='brewIbu' value=brew.brew_ibu)
+                    label(for='brewSum') Brew Summary
+                    input.pure-input-1-2(type='text' id='brewSum' name='brewSum' value=brew.brew_summary)
+                    label(for='brewAvaNow') Brew Available Now?
+                    input.pure-input-1-2(type='checkbox' id='brewAvaNow' name='brewAvaNow' value=brew.brew_avaliable_now)
+                    label(for='brewAvaStartDate') Brew Available Starts
+                    input.pure-input-1-2(type='date' id='brewAvaStartDate' name='brewAvaStartDate' value=brew.brew_avaliable_start)
+                    label(for='brewAvaEndDate') Brew Available Ends
+                    input.pure-input-1-2(type='date' id='brewAvaEndDate' name='brewAvaEndDate' value=brew.brew_avaliable_end)
+                    button(type='submit' class='pure-button pure-button-primary modal-content-padding' value='brewCreate') Update

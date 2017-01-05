@@ -47,10 +47,10 @@ body
                                 td() #{brew.brew_ibu}
                                 td() #{brew.brew_summary}
                                 td() #{brew.brew_avaliable_now}
-                                td() #{brew.brew_avaliable_date}
+                                td() #{brew.brew_avaliable_start}
+                                td() #{brew.brew_avaliable_end}
                                 td()
-                                td()
-                                    a(class='pure-button pure-button-primary') Edit
+                                    a(class='pure-button pure-button-primary' href='/dashboard/edit-brew?brew_selected='+brew.brew_id) Edit
 
         div.modal(id="modalElement")
             div.modal-content()
@@ -73,9 +73,9 @@ body
                         label(for='brewAvaNow') Brew Available Now?
                         input.pure-input-1-2(type='checkbox' id='brewAvaNow' name='brewAvaNow')
                         label(for='brewAvaStartDate') Brew Available Starts
-                        input.pure-input-1-2(type='date' id='brewAvaStartDate' name='brewAvaDate')
+                        input.pure-input-1-2(type='date' id='brewAvaStartDate' name='brewAvaStartDate')
                         label(for='brewAvaEndDate') Brew Available Ends
-                        input.pure-input-1-2(type='date' id='brewAvaEndDate' name='brewAvaDate')
+                        input.pure-input-1-2(type='date' id='brewAvaEndDate' name='brewAvaEndDate')
                         button(type='submit' class='pure-button pure-button-primary modal-content-padding' value='brewCreate') Create
 
     script(src="./../js/basicModal.js")
