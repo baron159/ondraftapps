@@ -4,7 +4,6 @@
 head
     script(src="./../js/bundle.js")
 body
-    - var selectedRow = {};
     div(id="layout")
         // Menu toggle
         a#menuLink.menu-link(href='#menu')
@@ -22,7 +21,7 @@ body
                     li.pure-menu-item(class="menu-height-override")
                         a.pure-menu-link(href='/log-out') Sign Out
         #main
-            h2 My Brewery Information
+            h2 Brews Information
             h4 #{message}
             div
                 a(class='pure-button pure-button-primary' id='modalToggleBtn') Create New Brew
@@ -51,7 +50,7 @@ body
                                 td() #{brew.brew_avaliable_date}
                                 td()
                                 td()
-                                    a(class='pure-button pure-button-primary' data-bar=selectedRow=brew) Edit
+                                    a(class='pure-button pure-button-primary') Edit
 
         div.modal(id="modalElement")
             div.modal-content()
