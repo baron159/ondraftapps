@@ -17,6 +17,10 @@ body {
     margin-left: 5%;
 }
 
+.login-div {
+    margin-top: 30%;
+}
+
 .Email, .Password {
     margin-bottom: 5px;
     border: 2px solid white;
@@ -46,6 +50,39 @@ h2 {
 .dashboard_layout {
     padding-top: 15px;
     padding-bottom: 10px;
+}
+
+.dashboard_backing{
+    background-image: url(./../static/cheers.JPG);
+
+}
+
+.logout_btn{
+    margin-left: 47%;
+    margin-top: 30px;
+}
+
+.dashboard_title {
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.dashboard_content{
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ondraft_button_primary {
+    background: rgb(223, 117, 20);
+    color: #ffffff;
+    font-size: large;
+    font-weight: 200;
+
 }
 
 .frgtpass, .account {

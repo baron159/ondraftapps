@@ -3,15 +3,16 @@
 head
     script(src="./js/bundle.js")
 body
-    form.log(action='/sign-in' method='post' class='pure-form pure-form-aligned')
-        input(type='hidden', name='_csrf', value=_csrf)
-        h2 On Draft Brewery Log-in
-        h4 #{message}
-        input.Email(type='text', placeholder='E-mail', name='userEmail')
-        br
-        input.Password(type='password', placeholder='Password', name='userPass')
-        hr
-        button.login(type='submit', value='Login' class='pure-button') Log-in
-        br
-        a.login(class='pure-button' href="/registration") Create Account
-        a.frgtpass(href='') Forgot Password?
+    div.log
+        form.login-div(action='/sign-in' method='post' class='pure-form pure-form-aligned')
+            input(type='hidden', name='_csrf', value=_csrf)
+            h2 On Draft Brewery Log-in
+            h4 #{message}
+            input.Email(type='text', placeholder='E-mail', name='userEmail')
+            br
+            input.Password(type='password', placeholder='Password', name='userPass')
+            br
+            button.login(type='submit', value='Login' class='pure-button') Log-in
+            br
+            a.login(class='pure-button' href="/registration") Create Account
+            a.frgtpass(href='') Forgot Password?
