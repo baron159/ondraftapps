@@ -1,0 +1,141 @@
+body {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border: transparent;
+}
+
+.navleft {
+    height: 700px;
+    width: 20%;
+    float: left;
+    background-image:url(WoodPatternDark.png);
+    background-size: contain;
+}
+
+.dashlist {
+    border: transparent;
+    list-style: none;
+    background: rgba(0,0,0,0.7);
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.brewopts {
+    font-size: 20px;
+    width: 99%;
+    background-size: cover;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+    padding-top: 6%;
+    padding-bottom: 7%;
+}
+
+.brewopts:hover {
+    background-image: url(StainlessSteelOrange.jpg);
+    background-size: cover;  
+    border: 2px solid white;
+}
+
+.cheers {
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 13%;
+}
+
+.screenright {
+    margin-top: 5px;
+    height: 205px;
+    width: 79%;
+    float: right;
+    background-image:url(WoodPatternDarkRotate.png);
+    background-size: contain;
+    background-color: rgba(0,0,0,0.7);
+    margin: auto; 
+}
+
+.headboard {
+    height: 205px;
+    width: 100%;
+    float: right;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0; 
+}
+
+.content {
+    width: 79%;
+    float: right;
+    border: transparent;
+}
+
+input {
+    margin: auto;
+    border: transparent;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-left: 0 auto;
+}
+
+td {
+    border-right: 2px solid #f85200;
+    border-bottom: 2px solid #f85200;
+    text-align: center;
+    padding: 5px;
+}
+
+th {
+    background-image: url(StainlessSteelOrange.jpg);
+    background-size: cover;
+    border: transparent;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+
+.newbrew, .edit {
+    background-image: url(StainlessSteelOrange.jpg);
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.edit {
+    width: 50px;
+}
+
+.editbutton {
+    border-right: transparent;
+    width:50px;
+}
+
+.newbrew:hover, .edit:hover {
+    border: 2px solid white;
+}
+
+.newbrew {
+    margin: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+h4 {
+    color: #f85200;
+}
+
+.left {
+    float: left;
+    width: 95%;
+}
+
+
+

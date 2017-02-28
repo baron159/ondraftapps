@@ -7,12 +7,14 @@ module.exports = {
     ],
     output: {
         path: __dirname + "/public/js",
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: "/js"
     },
     module: {
         loaders: [
             { test: /\.css$/, loader: "style!css" },
-            { test: /\.scss$/, loader: "style!css!sass" }
+            { test: /\.scss$/, loader: "style!css!sass" },
+            {test: /\.(jpe?g|png|gif|svg)$/i, loader: "file-loader?name=/public/img/[name].[ext]"}
         ]
     }
 };

@@ -1,0 +1,112 @@
+body {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.log {
+    text-align: center;
+    border: transparent;
+    width: 35%;
+    display: inline-block;
+    min-height: 700px;
+    float: left;
+    background-image: url('./WoodPattern.png');
+    background-size: cover;
+    border-radius: 5px;
+    margin-left: 5%;
+}
+
+.cheers {
+    height: 60%;
+    display:inline-block;
+    margin-right: 5%;
+    margin-top: 5%;
+    float: right;
+    width: 50%;
+}
+
+input {
+    margin: auto;
+    width: 55%;
+    border: transparent;
+}
+
+.Email:hover, .Password:hover, .login:hover, .frgtpass:hover, .account:hover {
+    border: 2px solid white;
+}
+
+.Email, .Password {
+    margin-bottom: 10px;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+    color: white;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.account {
+    margin-left: 5px;
+}
+
+.frgtpass, .account {
+    margin-bottom: 10px;
+    display: inline-block;
+    background-image: url(StainlessSteel.jpg);
+    background-size: cover;
+    padding: 5px;
+    border-radius: 5px;
+    width: 25%;
+    font-size-adjust: auto;
+}
+
+.login {
+    color: white;
+    background-image: url(StainlessSteelOrange.jpg);
+    background-size: cover;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.quote {
+    font-size: 25px;
+    float: right;
+    margin-right: 5%;
+    width: 50%;
+    color: white;
+    display: block;
+    text-align:center;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+
+.space {
+    padding-top: 20%;
+    padding-bottom: 70%;
+    background-color: rgba(0,0,0,0.7);
+    min-height: 100%;
+}
+
+.logo {
+    height: 40px;
+    display: inline-block;
+}
+
+.draft {
+    display: inline-block;
+    font-size: 40px;
+    color: #f85200;
+}
+
+.welcome {
+    color:white;
+    padding-left: 75px;
+    padding-right: 75px;
+    font-size: 18px;
+}

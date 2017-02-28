@@ -1,12 +1,20 @@
+body {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
 .log {
-    margin: auto;
-    padding: 10%;
     text-align: center;
-    background-color: rgba(0,0,0,0.7);
-    border: 2px white solid;
+    border: transparent;
+    width: 35%;
+    display: inline-block;
+    min-height: 700px;
+    float: left;
+    background-image: url(./../static/WoodPatternDark.png);
+    background-size: cover;
     border-radius: 5px;
-    width: 25%;
-    height: 50%;
+    margin-left: 5%;
 }
 
 .Email, .Password {
