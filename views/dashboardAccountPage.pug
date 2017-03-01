@@ -3,14 +3,14 @@
 
 head
     script(src="./../js/bundle.js")
-body
-    div(id="layout")
+body.account_backing
+    div(id="layout" class="layout_override")
         // Menu toggle
         a#menuLink.menu-link(href='#menu')
             span
-        #menu
-            .pure-menu
-                a.pure-menu-heading(href='/dashboard/main') Dashboard
+        #menu.pure-menu(class="menu_width_override")
+                a(href='/dashboard/main')
+                    img.menu_img_style(src="./../static/ondraftLogo.png")
                 ul.pure-menu-list
                     li.pure-menu-item(class="menu-height-override")
                         a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
@@ -21,21 +21,21 @@ body
                     li.pure-menu-item(class="menu-height-override")
                         a.pure-menu-link(href='/log-out') Sign Out
         #main
-            h2 Account Information
+            span.dashboard_title() Account Information
             h4 #{message}
             div()
                 form(action='/dashboard/update-account' method='POST' class='pure-form')
                     input(type='hidden', name='_csrf', value=_csrf)
                     fieldset(class='pure-group')
-                        legend Sign-in Information
-                        input.pure-input-1-4(type='email' id='userEmail' name='userEmail' value=userEmail disabled=true)
-                        a(class='pure-button pure-button-primary' id='modalToggleBtn') Change Password
+                        legend.sub-heading() Sign-in Information
+                        input.pure-input-1-2(type='email' id='userEmail' name='userEmail' value=userEmail readonly=true)
+                        a(class='pure-button ondraft_button_primary' id='modalToggleBtn' style="margin-top:15px;") Change Password
                     fieldset(class='pure-group')
-                        legend Personal Information
-                        input.pure-input-1-4(type='text' name='userFirstName' placeholder='First Name' value=userFirst)
-                        input.pure-input-1-4(type='text' name='userLastName' placeholder='Last Name' value=userLast)
-                        input.pure-input-1-4(type='tel' name='userPhone' placeholder='Phone Number' value=userPhone)
-                    button(type='submit' class='pure-button pure-button-primary' value='userInfo') Update Account
+                        legend.sub-heading() Personal Information
+                        input.pure-input-1-2(type='text' name='userFirstName' placeholder='First Name' value=userFirst)
+                        input.pure-input-1-2(type='text' name='userLastName' placeholder='Last Name' value=userLast)
+                        input.pure-input-1-2(type='tel' name='userPhone' placeholder='Phone Number' value=userPhone)
+                    button(type='submit' class='pure-button ondraft_button_primary' value='userInfo') Update Account
 
         div.modal(id='modalElement')
             div.modal-content()
