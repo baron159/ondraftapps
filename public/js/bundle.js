@@ -58,8 +58,8 @@
 
 	__webpack_require__(2);
 	__webpack_require__(6);
-	__webpack_require__(10);
-	__webpack_require__(12);
+	__webpack_require__(11);
+	__webpack_require__(13);
 
 
 	// require('../js/ui');
@@ -449,7 +449,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n    background-color: black;\n    background-size: cover;\n    background-position: center;\n}\n\n.layout_override {\n    margin-left: 20% !important;\n    margin-top: 5% !important;\n    background: rgba(255, 255, 255, 0.3);\n    margin-right: 40%;\n    border-radius: 20px;\n    padding: 25px !important;\n}\n\n.menu_width_override{\n    width: 14%!important;\n\n}\n\n.menu_img_style {\n    width: 80%;\n    padding-top: 25px;\n    padding-bottom: 10px;\n    padding-left: 6%;\n}\n\n.log {\n    text-align: center;\n    border: transparent;\n    width: 35%;\n    display: inline-block;\n    min-height: 700px;\n    float: left;\n    background-image: url(" + __webpack_require__(8) + ");\n    background-size: cover;\n    border-radius: 5px;\n    margin-left: 5%;\n}\n\n.login-div {\n    margin-top: 30%;\n}\n\n.Email, .Password {\n    margin-bottom: 5px;\n    border: 2px solid white;\n    border-radius: 5px;\n    color:#fff;\n    background-color: transparent;\n    padding: 5px;\n}\n\nh2 {\n    color: rgb(223, 117, 20);\n}\n\n.menu-height-override{\n    height: auto;\n}\n\n#main {\n    padding-left: 20px;\n    padding-top: 15px;\n}\n\n.logo {\n    height: 40px;\n    display: inline-block;\n}\n\n.cheers {\n    margin-top: 15%;\n    width: 50%;\n}\n\n.quote {\n    color: white;\n    display: block;\n    text-align: center;\n    margin-top: 25px;\n    font-weight: 200;\n    letter-spacing: 2px;\n    font-size: 30px;\n}\n\n.dashboard_centering {\n    text-align: center;\n}\n\n.dashboard_layout {\n    padding-top: 15px;\n    padding-bottom: 10px;\n}\n\n.dashboard_backing{\n    background-image: url(" + __webpack_require__(9) + ");\n}\n\n.account_backing{\n    background-image: url(" + __webpack_require__(14) + ");\n}\n\n.logout_btn{\n    margin-left: 47%;\n    margin-top: 30px;\n}\n\n.dashboard_title {\n    margin-top: 40px;\n    font-size: 40px;\n    font-weight: 300;\n    letter-spacing: 1px;\n    color: rgb(223, 117, 20);\n\n}\n\n.sub-heading {\n    font-size: 20px;\n    letter-spacing: 1px;\n    color: goldenrod !important;\n}\n\n.dashboard_content{\n    margin-top: 25px;\n    padding-top: 25px;\n    padding-bottom: 25px;\n    border-radius: 20px;\n    background-color: rgba(255, 255, 255, 0.3);\n}\n\n.ondraft_button_primary {\n    background: rgb(223, 117, 20);\n    color: #ffffff;\n    font-size: large;\n    font-weight: 200;\n\n}\n\n.frgtpass, .account {\n    margin-bottom: 5px;\n    display: block;\n}\n\n.login {\n    color: #ffffff;\n    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);\n    background: rgb(223, 117, 20);\n    border-radius: 5px;\n    margin-bottom: 15px;\n    margin-top: 5px;\n}\n\na {\n    color: rgb(223, 117, 20);\n    text-decoration: none;\n}\n\n/* Modal Main Element */\n.modal {\n    display: none; /* Hidden by default */\n    position: fixed; /* Stay in place */\n    z-index: 1; /* Sit on top */\n    padding-top: 100px; /* Location of the box */\n    left: 0;\n    top: 0;\n    width: 100%; /* Full width */\n    height: 100%; /* Full height */\n    overflow: auto; /* Enable scroll if needed */\n    background-color: rgb(0,0,0); /* Fallback color */\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\n}\n\n/* Modal Header */\n.modal-header {\n    padding: 2px 16px;\n    background-color: #1f8dd6;\n    color: white;\n}\n\n/* Modal Body */\n.modal-body {padding: 2px 16px;}\n\n/* Modal Footer */\n.modal-footer {\n    padding: 2px 16px;\n    background-color: #1f8dd6;\n    color: white;\n}\n\n.modal-content-padding{\n    margin-top: 15px;\n}\n\n.modal-close {\n    margin: auto;\n    font-size: x-large;\n    text-align: right;\n}\n\n/* Modal Content */\n.modal-content {\n    position: relative;\n    background-color: #fefefe;\n    margin: auto;\n    padding: 0;\n    border: 1px solid #888;\n    width: 30%;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);\n    -webkit-animation-name: animatetop;\n    -webkit-animation-duration: 0.4s;\n    animation-name: animatetop;\n    animation-duration: 0.4s\n}\n\n/* Add Animation */\n@-webkit-keyframes animatetop {\n    from {top: -300px; opacity: 0}\n    to {top: 0; opacity: 1}\n}\n\n@keyframes animatetop {\n    from {top: -300px; opacity: 0}\n    to {top: 0; opacity: 1}\n}", ""]);
+	exports.push([module.id, "body {\n    background-color: black;\n    background-size: cover;\n    background-position: center;\n}\n\n.layout_override {\n    margin-left: 20% !important;\n    margin-top: 5% !important;\n    background: rgba(0, 0, 0, 0.7);\n    margin-right: 40%;\n    border-radius: 20px;\n    padding: 25px !important;\n    width: 70%;\n}\n\n.menu_width_override{\n    width: 14%!important;\n\n}\n\n.menu_img_style {\n    width: 80%;\n    padding-top: 25px;\n    padding-bottom: 10px;\n    padding-left: 6%;\n}\n\n.log {\n    text-align: center;\n    border: transparent;\n    width: 35%;\n    display: inline-block;\n    min-height: 700px;\n    float: left;\n    background-image: url(" + __webpack_require__(8) + ");\n    background-size: cover;\n    border-radius: 5px;\n    margin-left: 5%;\n}\n\n.login-div {\n    margin-top: 30%;\n}\n\n.Email, .Password {\n    margin-bottom: 5px;\n    border: 2px solid white;\n    border-radius: 5px;\n    color:#fff;\n    background-color: transparent;\n    padding: 5px;\n}\n\nh2 {\n    color: rgb(223, 117, 20);\n}\n\n.menu-height-override{\n    height: auto;\n}\n\n#main {\n    padding-left: 20px;\n    padding-top: 15px;\n}\n\n.logo {\n    height: 40px;\n    display: inline-block;\n}\n\n.cheers {\n    margin-top: 15%;\n    width: 50%;\n}\n\n.quote {\n    color: white;\n    display: block;\n    text-align: center;\n    margin-top: 25px;\n    font-weight: 200;\n    letter-spacing: 2px;\n    font-size: 30px;\n}\n\n.dashboard_centering {\n    text-align: center;\n}\n\n.dashboard_layout {\n    padding-top: 15px;\n    padding-bottom: 10px;\n}\n\n.dashboard_backing{\n    background-image: url(" + __webpack_require__(9) + ");\n}\n\n.account_backing{\n    background-image: url(" + __webpack_require__(10) + ");\n}\n\n.logout_btn{\n    margin-left: 47%;\n    margin-top: 30px;\n}\n\n.dashboard_title {\n    margin-top: 40px;\n    font-size: 40px;\n    font-weight: 300;\n    letter-spacing: 1px;\n    color: rgb(223, 117, 20);\n\n}\n\n.sub-heading {\n    font-size: 20px;\n    letter-spacing: 1px;\n    color: white !important;\n}\n\n.dashboard_content{\n    margin-top: 25px;\n    padding-top: 25px;\n    padding-bottom: 25px;\n    border-radius: 20px;\n    background-color: rgba(255, 255, 255, 0.3);\n}\n\n.ondraft_button_primary {\n    background: rgb(223, 117, 20);\n    color: #ffffff;\n    font-size: large;\n    font-weight: 200;\n\n}\n\n.frgtpass, .account {\n    margin-bottom: 5px;\n    display: block;\n}\n\n.login {\n    color: #ffffff;\n    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);\n    background: rgb(223, 117, 20);\n    border-radius: 5px;\n    margin-bottom: 15px;\n    margin-top: 5px;\n}\n\na {\n    color: rgb(223, 117, 20);\n    text-decoration: none;\n}\n\n/* Modal Main Element */\n.modal {\n    display: none; /* Hidden by default */\n    position: fixed; /* Stay in place */\n    z-index: 1; /* Sit on top */\n    padding-top: 100px; /* Location of the box */\n    left: 0;\n    top: 0;\n    width: 100%; /* Full width */\n    height: 100%; /* Full height */\n    overflow: auto; /* Enable scroll if needed */\n    background-color: rgb(0,0,0); /* Fallback color */\n    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */\n}\n\n/* Modal Header */\n.modal-header {\n    padding: 2px 16px;\n    background-color: #1f8dd6;\n    color: white;\n}\n\n/* Modal Body */\n.modal-body {padding: 2px 16px;}\n\n/* Modal Footer */\n.modal-footer {\n    padding: 2px 16px;\n    background-color: #1f8dd6;\n    color: white;\n}\n\n.modal-content-padding{\n    margin-top: 15px;\n}\n\n.modal-close {\n    margin: auto;\n    font-size: x-large;\n    text-align: right;\n}\n\n/* Modal Content */\n.modal-content {\n    position: relative;\n    background-color: #fefefe;\n    margin: auto;\n    padding: 0;\n    border: 1px solid #888;\n    width: 30%;\n    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);\n    -webkit-animation-name: animatetop;\n    -webkit-animation-duration: 0.4s;\n    animation-name: animatetop;\n    animation-duration: 0.4s\n}\n\n/* Add Animation */\n@-webkit-keyframes animatetop {\n    from {top: -300px; opacity: 0}\n    to {top: 0; opacity: 1}\n}\n\n@keyframes animatetop {\n    from {top: -300px; opacity: 0}\n    to {top: 0; opacity: 1}\n}", ""]);
 
 	// exports
 
@@ -470,10 +470,16 @@
 /* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = __webpack_require__.p + "/public/img/WoodPatternDarkRotate.png";
+
+/***/ },
+/* 11 */
+/***/ function(module, exports, __webpack_require__) {
+
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(11);
+	var content = __webpack_require__(12);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -493,7 +499,7 @@
 	}
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -507,13 +513,13 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(13);
+	var content = __webpack_require__(14);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
 	var update = __webpack_require__(5)(content, {});
@@ -533,7 +539,7 @@
 	}
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	exports = module.exports = __webpack_require__(4)();
@@ -545,12 +551,6 @@
 
 	// exports
 
-
-/***/ },
-/* 14 */
-/***/ function(module, exports, __webpack_require__) {
-
-	module.exports = __webpack_require__.p + "/public/img/WoodPatternDarkRotate.png";
 
 /***/ }
 /******/ ]);

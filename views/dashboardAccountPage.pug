@@ -28,11 +28,11 @@ body.account_backing
                 form(action='/dashboard/update-account' method='POST' class='pure-form')
                     input(type='hidden', name='_csrf', value=_csrf)
                     fieldset(class='pure-group')
-                        legend.sub-heading() Sign-in Information
+                        legend.sub-heading(style="width:92%;") Sign-in Information
                         input.pure-input-1-2(type='email' id='userEmail' name='userEmail' value=userEmail readonly=true)
                         a(class='pure-button ondraft_button_primary' id='modalToggleBtn' style="margin-top:15px;") Change Password
                     fieldset(class='pure-group')
-                        legend.sub-heading() Personal Information
+                        legend.sub-heading(style="width:92%;") Personal Information
                         input.pure-input-1-2(type='text' name='userFirstName' placeholder='First Name' value=userFirst)
                         input.pure-input-1-2(type='text' name='userLastName' placeholder='Last Name' value=userLast)
                         input.pure-input-1-2(type='tel' name='userPhone' placeholder='Phone Number' value=userPhone)

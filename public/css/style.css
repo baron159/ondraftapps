@@ -7,10 +7,11 @@ body {
 .layout_override {
     margin-left: 20% !important;
     margin-top: 5% !important;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.7);
     margin-right: 40%;
     border-radius: 20px;
     padding: 25px !important;
+    width: 70%;
 }
 
 .menu_width_override{
@@ -118,7 +119,7 @@ h2 {
 .sub-heading {
     font-size: 20px;
     letter-spacing: 1px;
-    color: goldenrod !important;
+    color: white !important;
 }
 
 .dashboard_content{
