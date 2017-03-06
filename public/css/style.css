@@ -7,6 +7,7 @@ body {
 .layout_override {
     margin-left: 20% !important;
     margin-top: 5% !important;
+    margin-bottom: 30px;
     background: rgba(0, 0, 0, 0.7);
     margin-right: 40%;
     border-radius: 20px;
@@ -84,6 +85,22 @@ h2 {
     color: white;
 }
 
+.check_box_block span{
+    margin-left: 5px;
+    vertical-align: top;
+    color: white;
+    font-weight: 200;
+}
+
+/*
+TODO This is a feature that I think will increase read-ability will need to do more research to make this work.
+Not worth my time right now
+*/
+
+/*.check_box_block input[type=checkbox]:checked{*/
+    /*color: rgb(223, 117, 20)!important;*/
+/*}*/
+
 .quote {
     color: white;
     display: block;
@@ -155,7 +172,6 @@ h2 {
     color: #ffffff;
     font-size: large;
     font-weight: 200;
-
 }
 
 .frgtpass, .account {
@@ -203,7 +219,10 @@ a {
 .modal-body {
     padding: 2px 16px;
     background-color: #191818;
-    color: #FFFFF0;
+}
+
+.modal-body label{
+    color: white;
 }
 
 /* Modal Footer */
