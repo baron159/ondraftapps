@@ -3,31 +3,33 @@
 
 head
     script(src="./../js/bundle.js")
-body
-    div(id="layout")
+body.account_backing
+    div(id="" class="layout_override_brew")
         // Menu toggle
         a#menuLink.menu-link(href='#menu')
             span
-        #menu
-            .pure-menu
-                a.pure-menu-heading(href='/dashboard/main') Dashboard
-                ul.pure-menu-list
-                    li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='/dashboard/account-info') Account
-                    li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
-                    li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='#') Payment Info
-                    li.pure-menu-item(class="menu-height-override")
-                        a.pure-menu-link(href='/log-out') Sign Out
+        #menu.pure-menu(class="menu_width_override")
+            a(href='/dashboard/main')
+                img.menu_img_style(src="./../static/ondraftLogo.png")
+            hr(size="1" width="70%")
+            ul.pure-menu-list
+                li.pure-menu-item(class="menu-height-override")
+                    a.pure-menu-link(href='/dashboard/account-info') My Account
+                li.pure-menu-item(class="menu-height-override")
+                    a.pure-menu-link(href='/dashboard/brewery-info') My Brewery
+                li.pure-menu-item(class="menu-height-override")
+                    a.pure-menu-link(href='#' ) Payment Info
+                li.pure-menu-item(class="menu-height-override")
+                    a.pure-menu-link(href='/log-out') Sign Out
         #main
-            h2 Brews Information
+            span.dashboard_title() Brews Information
             h4 #{message}
             div
-                a(class='pure-button pure-button-primary' id='modalToggleBtn') Create New Brew
+                a(class='pure-button ondraft_button_primary' id='modalToggleBtn') Create New Brew
+            br
             div
-                table.pure-table(class="pure-table-horizontal")
-                    thead()
+                table.pure-table(class="pure-table-horizontal brew_table")
+                    thead.brew_table_header()
                         tr()
                             th Brew Name
                             th Brew Style
@@ -46,11 +48,14 @@ body
                                 td() #{brew.brew_abv}
                                 td() #{brew.brew_ibu}
                                 td() #{brew.brew_summary}
-                                td() #{brew.brew_avaliable_now}
+                                if brew.brew_avaliable_now == true
+                                    td() Yes
+                                else
+                                    td() No
                                 td() #{brew.brew_avaliable_start}
                                 td() #{brew.brew_avaliable_end}
                                 td()
-                                    a(class='pure-button pure-button-primary' href='/dashboard/edit-brew?brew_selected='+brew.brew_id) Edit
+                                    a(class='pure-button ondraft_button_primary' href='/dashboard/edit-brew?brew_selected='+brew.brew_id) Edit
 
         div.modal(id="modalElement")
             div.modal-content()
