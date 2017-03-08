@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./node_modles/.bin/pm2 start ./bin/www -i max --name OnDraftApp",
+    "start": "node ./node_modules/.bin/pm2 start ./bin/www -i max --name OnDraftApp",
     "poststart": "node ./node_modules/.bin/pm2 logs"
   },
   "dependencies": {
