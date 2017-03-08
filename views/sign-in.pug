@@ -2,16 +2,28 @@
    Created by scottbaron on 11/14/16.
 head
     script(src="./js/bundle.js")
+    - var br = '</br>'
 body
-    form.log(action='/sign-in' method='post' class='pure-form pure-form-aligned')
-        input(type='hidden', name='_csrf', value=_csrf)
-        h2 On Draft Brewery Log-in
-        h4 #{message}
-        input.Email(type='text', placeholder='E-mail', name='userEmail')
-        br
-        input.Password(type='password', placeholder='Password', name='userPass')
-        hr
-        button.login(type='submit', value='Login' class='pure-button') Log-in
-        br
-        a.login(class='pure-button' href="/registration") Create Account
-        a.frgtpass(href='') Forgot Password?
+    div.log
+        form.login-div(action='/sign-in' method='post' class='pure-form pure-form-aligned')
+            input(type='hidden', name='_csrf', value=_csrf)
+            div.pure-g(class="dashboard_title" )
+                div.pure-u-1-2(style="text-align:right;")
+                    img(alt="logo" class="logo" src="./../static/ondraftLogo.png")
+                div.pure-u-1-2(style="text-align:left")
+                    span(style="padding-left:5px; letter-spacing:1px;") Draft
+            h4 #{message}
+            div()
+                input.Email(type='text', placeholder='E-mail', name='userEmail')
+                br
+                input.Password(type='password', placeholder='Password', name='userPass')
+                br
+                button.login(type='submit', value='Login' class='pure-button') Log-in
+                br
+                a.login(class='pure-button' href="/registration") Create Account
+                a.frgtpass(href='') Forgot Password?
+    div.pure-g
+        div.pure-u-1(class="dashboard_centering")
+            img(class="cheers" src="./../static/ondraftLogo.png")
+        div.pure-u-1(class="quote")
+            span() The Road Map to Breweries

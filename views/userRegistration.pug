@@ -2,19 +2,19 @@
    Created by scottbaron on 11/22/16.
 head
     script(src="./js/bundle.js")
-body
-    h2 On Draft App Brewery Registration
+body.account_backing()
+    span.dashboard_title() On Draft App Brewery Registration
     h4 #{message}
-    div()
+    div(class="layout_override")
         form(action='/register' method='POST' class='pure-form')
             input(type='hidden', name='_csrf', value=_csrf)
             fieldset(class='pure-group')
-                legend Sign-in Information
+                legend.sub-heading Sign-in Information
                 input.pure-input-1-4(type='email' id='userEmail' name='userEmail' placeholder='Email')
                 input.pure-input-1-4(type='password' id='userPass' name='userPass' placeholder='Password')
                 input.pure-input-1-4(type='password' id='userPassCheck' name='passCheck' placeholder='Re-enter Password')
             fieldset(class='pure-group')
-                legend Personal Information
+                legend.sub-heading Personal Information
                 input.pure-input-1-4(type='text' name='userFirstName' id='userFirstName' placeholder='First Name')
                 input.pure-input-1-4(type='text' name='userLastName' id='userLastName' placeholder='Last Name')
                 input.pure-input-1-4(type='tel' name='userPhone' id='userPhone' placeholder='Phone Number')

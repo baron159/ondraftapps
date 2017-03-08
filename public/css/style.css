@@ -1,12 +1,52 @@
+body {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.layout_override {
+    margin-left: 20% !important;
+    margin-top: 5% !important;
+    margin-bottom: 30px;
+    background: rgba(0, 0, 0, 0.7);
+    margin-right: 40%;
+    border-radius: 20px;
+    padding: 25px !important;
+    width: 70%;
+}
+
+.layout_override_brew {
+    margin-left: 15% !important;
+    margin-top: 3% !important;
+}
+
+.menu_width_override{
+    width: 14%!important;
+
+}
+
+.menu_img_style {
+    width: 80%;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    padding-left: 6%;
+}
+
 .log {
-    margin: auto;
-    padding: 10%;
     text-align: center;
-    background-color: rgba(0,0,0,0.7);
-    border: 2px white solid;
+    border: transparent;
+    width: 35%;
+    display: inline-block;
+    min-height: 700px;
+    float: left;
+    background-image: url(./../static/WoodPatternDark.png);
+    background-size: cover;
     border-radius: 5px;
-    width: 25%;
-    height: 50%;
+    margin-left: 5%;
+}
+
+.login-div {
+    margin-top: 30%;
 }
 
 .Email, .Password {
@@ -31,6 +71,46 @@ h2 {
     padding-top: 15px;
 }
 
+.logo {
+    height: 40px;
+    display: inline-block;
+}
+
+.cheers {
+    margin-top: 15%;
+    width: 50%;
+}
+
+.text_basic_color_override{
+    color: white;
+}
+
+.check_box_block span{
+    margin-left: 5px;
+    vertical-align: top;
+    color: white;
+    font-weight: 200;
+}
+
+/*
+TODO This is a feature that I think will increase read-ability will need to do more research to make this work.
+Not worth my time right now
+*/
+
+/*.check_box_block input[type=checkbox]:checked{*/
+    /*color: rgb(223, 117, 20)!important;*/
+/*}*/
+
+.quote {
+    color: white;
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+    font-weight: 200;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
 .dashboard_centering {
     text-align: center;
 }
@@ -38,6 +118,60 @@ h2 {
 .dashboard_layout {
     padding-top: 15px;
     padding-bottom: 10px;
+}
+
+.dashboard_backing{
+    background-image: url(./../static/cheers.JPG);
+}
+
+.account_backing{
+    background-image: url(./../static/WoodPatternDarkRotate.png);
+}
+
+.brew_table {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.brew_table_header {
+    background-color: rgb(223, 117, 20)!important;
+    color: white !important;
+
+}
+
+.logout_btn{
+    margin-left: 47%;
+    margin-top: 30px;
+}
+
+.dashboard_title {
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    color: rgb(223, 117, 20);
+
+}
+
+.sub-heading {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: white !important;
+}
+
+.dashboard_content{
+    margin-top: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.ondraft_button_primary {
+    background: rgb(223, 117, 20);
+    color: #ffffff;
+    font-size: large;
+    font-weight: 200;
 }
 
 .frgtpass, .account {
@@ -77,12 +211,19 @@ a {
 /* Modal Header */
 .modal-header {
     padding: 2px 16px;
-    background-color: #1f8dd6;
+    background-color: rgb(223, 117, 20);
     color: white;
 }
 
 /* Modal Body */
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 2px 16px;
+    background-color: #191818;
+}
+
+.modal-body label{
+    color: white;
+}
 
 /* Modal Footer */
 .modal-footer {

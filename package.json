@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "build": "webpack -p --config webpack.prod.config.js"
+    "start": "node ./node_modles/.bin/pm2 start ./bin/www -i max --name OnDraftApp",
+    "poststart": "node ./node_modules/.bin/pm2 logs"
   },
   "dependencies": {
     "bcrypt": "^1.0.1",
@@ -16,20 +16,24 @@
     "debug": "~2.5.1",
     "express": "~4.14.0",
     "express-session": "^1.14.2",
+    "file-loader": "^0.10.1",
     "morgan": "~1.7.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "pg": "^6.1.0",
     "pg-promise": "^5.5.0",
+    "pm2": "^2.4.2",
     "pug": "^2.0.0-beta6",
     "purecss": "^0.6.0",
     "serve-favicon": "~2.3.0",
+    "url-loader": "^0.5.8",
     "webpack": "^1.14.0"
   },
   "devDependencies": {
     "css-loader": "^0.26.1",
-    "imports-loader": "^0.7.0",
-    "style-loader": "^0.13.1"
+    "file-loader": "^0.10.1",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.8"
   }
 }

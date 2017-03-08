@@ -12,16 +12,18 @@ var queryDB = require('pg-promise');
 
 var rawBreweryInfoFetch = 'SELECT * FROM brewery_table WHERE user_id=$1::int LIMIT 1;';
 var rawBreweryCreationQuery = 'INSERT INTO brewery_table VALUES(' +
-    'DEFAULT, $1::int, $2::text, $3::text, $4::text, $5::text, $6::text, $7::text, $8::text, $9::text, $10::text,' +
+    'DEFAULT, $1::int, $2::text, $3::text, $5::text, $6::text, $7::text, $8::text, $9::text, $10::text,' +
     ' $11::text, $12::text, $13::text, $14::text, $15::text, $16::text, $17::text, $18::text' +
     ');';
 
 var rawBreweryUpdateQuery = 'UPDATE brewery_table SET ' +
-    'brewery_summary=$1::text, brewery_amenities=$2::text, brewery_address_1=$3::text, brewery_address_2=$4::text, ' +
+    'brewery_summary=$1::text, brewery_address_1=$3::text, brewery_address_2=$4::text, ' +
     'brewery_city=$5::text, brewery_state=$6::text, brewery_zip=$7::text, brewery_lat=$8::text, brewery_long=$9::text, ' +
     'brewery_monday=$10::text, brewery_tuesday=$11::text, brewery_wednesday=$12::text, brewery_thursday=$13::text, ' +
     'brewery_friday=$14::text, brewery_saturday=$15::text, brewery_sunday=$16::text, brewery_name=$17::text ' +
     'WHERE user_id=$18::int AND brewery_id=$19::int;';
+
+var rawBreweryAmenitiesQuery = 'UPDATE brewery_table SET brewery_amenities=$1::text WHERE user_id=$2::int AND brewery_id=$3::int;';
 
 router.get('/main', isLoggedIn, function (req, res) {
     res.render('mainDashboard', {message: req.query['message']});
@@ -50,6 +52,7 @@ router.get('/brewery-info', isLoggedIn, function (req, res) {
                         renderData['_csrf'] = req.csrfToken();
                         renderData['freshFlag'] = 'false';
                         renderData['message'] = req.query['message'];
+                        renderData['brewery_amenities'] = JSON.parse(renderData['brewery_amenities']);
                         console.log(renderData);
                         res.render('dashboardBreweryView', renderData);
                     }
@@ -61,6 +64,40 @@ router.get('/brewery-info', isLoggedIn, function (req, res) {
             });
         }
     });
+
+});
+
+router.post('/brewery-amenities-update', isLoggedIn, function (req, res) {
+    delete req.body['_csrf'];
+    var breweryID = req.body['breweryId'];
+    delete req.body['breweryId'];
+    console.log(req.body);
+    // var dbStore = JSON.stringify(req.body);
+    draftDB.draftDB.connect(function (err, client, done) {
+        if(err){
+            console.error('ERROR - Unable to get a client');
+            res.statusCode = 501;
+            res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update+Service+is+unavailable+at+this+time');
+        }
+        else{
+            client.query(rawBreweryAmenitiesQuery, [req.body, req.user['userID'], breweryID], function (err, result) {
+                done();
+                if (err) {
+                    console.error('ERROR - Problem with query');
+                    console.error(err);
+                    console.error(results);
+                    res.statusCode = 501;
+                    res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update+Service+is+unavailable+at+this+time');
+                }
+                else{
+                    console.log('Brewery Updated - Amenities');
+                    res.statusCode = 200;
+                    res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update');
+
+                }
+            })
+        }
+    })
 
 });
 
@@ -77,7 +114,6 @@ router.post('/brewery-update', isLoggedIn, function (req, res) {
                 client.query(rawBreweryCreationQuery, [
                     req.user['userID'],
                     req.body['brewerySum'],
-                    req.body['breweryFeatures'],
                     req.body['breweryAddress1'],
                     req.body['breweryAddress2'],
                     req.body['breweryCity'],

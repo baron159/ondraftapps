@@ -1,0 +1,151 @@
+body {
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border: transparent;
+}
+
+.navleft {
+    height: 700px;
+    width: 20%;
+    float: left;
+    background-image:url(WoodPatternDark.png);
+    background-size: cover;
+}
+
+.dashlist {
+    border: transparent;
+    list-style: none;
+    background: rgba(0,0,0,0.7);
+    height: 700px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.brewopts {
+    font-size: 20px;
+    width: 99%;
+    background-size: cover;
+    border-radius: 5px;
+    text-align: center;
+    margin: auto;
+    padding-top: 6%;
+    padding-bottom: 7%;
+}
+
+.brewopts:hover {
+    background-image: url(StainlessSteelOrange.jpg);
+    background-size: cover;  
+    border: 2px solid white;
+}
+
+.cheers {
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 13%;
+}
+
+.screenright {
+    margin-top: 5px;
+    height: 205px;
+    width: 79%;
+    float: right;
+    background-image:url(WoodPatternDarkRotate.png);
+    background-size: contain;
+    background-color: rgba(0,0,0,0.7);
+    margin: auto; 
+}
+
+.headboard {
+    height: 205px;
+    width: 100%;
+    float: right;
+    background-color: rgba(0,0,0,0.7);
+    margin: 0; 
+}
+
+.content {
+    width: 79%;
+    float: right;
+    border: transparent;
+}
+
+input {
+    margin: auto;
+    border: transparent;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+    margin-left: 0 auto;
+}
+
+.Email, .First, .Last, .Telephone, .Address1, .Address2, .City, .State, .Zip, .ContactEmail {
+    margin-bottom: 10px;
+    border-bottom: 2px solid white;
+    border-radius: 5px;
+    color:#fff;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.Address1, .Address2 {
+    width: 85%;
+}
+
+.City, .State {
+    width: 29%;
+}
+
+.Zip {
+    width: 19%;
+}
+
+.Email:hover, .First:hover, .Last:hover, .Telephone:hover .Address1:hover, .Address2:hover, .City:hover, .State:hover, .Zip:hover  {
+    border: 2px solid white;
+}
+
+.changepass, .update {
+    background-image: url(StainlessSteelOrange.jpg);
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.changepass:hover, .update:hover, .Telephone:hover, .ContactEmail:hover {
+    border: 2px solid white;
+}
+
+h2 {
+    text-align: center;
+}
+
+h4 {
+    color: #f85200;
+}
+
+.left {
+    float: left;
+    width: 30%;
+    text-align: center;
+}
+
+.Owner1, .Owner2, .Owner3 {
+    float: left;
+    width: 23%;
+    text-align: center;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-radius: 5px;
+}
+
+.Owner1 {
+    border-left: 2px solid white; 
+}
+
+.Owner3 {
+    border-right: 2px solid white; 
+}
