@@ -57,86 +57,87 @@ body.account_backing
                         input.pure-input-1-3(type='text' name='brewerySunday' placeholder='Sunday Hours' value=brewery_sunday)
                 button(type='submit' class='pure-button ondraft_button_primary' value='userInfo') Update Info
             br
-            span.sub-heading(style="align:center;") Brewery Amenities
-            hr(width="75%")
-            br
-            form.pure-g(action='/dashboard/brewery-amenities-update' method='POST' class='pure-form')
-                input(type='hidden', name='_csrf', value=_csrf)
-                input(type='hidden', name='breweryId', value=brewery_id)
-                div.pure-u-1-4
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='inside_dog_friendly' checked=brewery_amenities.inside_dog_friendly)
-                        span Dog Friendly (Inside)
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='outside_dog_friendly' checked=brewery_amenities.outside_dog_friendly)
-                        span Dog Friendly (Outside)
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='off_street_parking' checked=brewery_amenities.off_street_parking)
-                        span Off-Street Parking
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='outdoor_seating' checked=brewery_amenities.outdoor_seating)
-                        span Outdoor Seating
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='extra_seating' checked=brewery_amenities.extra_seating)
-                        span Additional Seating
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name='tap_room' checked=brewery_amenities.tap_room)
-                        span Tap Room Only
-                div.pure-u-1-4
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="dance_floor" checked=brewery_amenities.dance_floor)
-                        span Dance Floor
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="tv" checked=brewery_amenities.tv)
-                        span TV's
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="food_onsite" checked=brewery_amenities.food_onsite)
-                        span On Site Food
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="gift_shop" checked=brewery_amenities.gift_shop)
-                        span Gift Store/Merchandise
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="outdoor_games" checked=brewery_amenities.outdoor_games)
-                        span Outdoor Games
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="playing_cards" checked=brewery_amenities.playing_cards)
-                        span Playing Cards
-                div.pure-u-1-4
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="food_truck" checked=brewery_amenities.food_truck)
-                        span Food Truck(s)
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="live_music" checked=brewery_amenities.live_music)
-                        span Live Music/Stage Area
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="board_games" checked=brewery_amenities.board_games)
-                        span Board Games
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="brewery_tours" checked=brewery_amenities.brewery_tours)
-                        span Brewery Tours
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="bar_games" checked=brewery_amenities.bar_games)
-                        span Bar Games
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="mug_club" checked=brewery_amenities.mug_club)
-                        span Mug Club
-                div.pure-u-1-4
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="own_food" checked=brewery_amenities.own_food)
-                        span Bring Your Own Food
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="happy_hour" checked=brewery_amenities.happy_hour)
-                        span Happy Hour
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="liquor_bar" checked=brewery_amenities.liquor_bar)
-                        span Liquor Bar
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="wine_bar" checked=brewery_amenities.wine_bar)
-                        span Wine Bar
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="free_merchandise" checked=brewery_amenities.free_merchandise)
-                        span Free Merchandise
-                    div.pure-u-1(class="check_box_block")
-                        input(type="checkbox" name="drink_specials" checked=brewery_amenities.drink_specials)
-                        span Drink Specials
-                button(type='submit' class='pure-button ondraft_button_primary' value='userInfo' style="margin-top: 10px;") Update Amenities
+            if brewery_amenities != null
+                span.sub-heading(style="align:center;") Brewery Amenities
+                hr(width="75%")
+                br
+                form.pure-g(action='/dashboard/brewery-amenities-update' method='POST' class='pure-form')
+                    input(type='hidden', name='_csrf', value=_csrf)
+                    input(type='hidden', name='breweryId', value=brewery_id)
+                    div.pure-u-1-4
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='inside_dog_friendly' checked=brewery_amenities.inside_dog_friendly)
+                            span Dog Friendly (Inside)
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='outside_dog_friendly' checked=brewery_amenities.outside_dog_friendly)
+                            span Dog Friendly (Outside)
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='off_street_parking' checked=brewery_amenities.off_street_parking)
+                            span Off-Street Parking
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='outdoor_seating' checked=brewery_amenities.outdoor_seating)
+                            span Outdoor Seating
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='extra_seating' checked=brewery_amenities.extra_seating)
+                            span Additional Seating
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name='tap_room' checked=brewery_amenities.tap_room)
+                            span Tap Room Only
+                    div.pure-u-1-4
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="dance_floor" checked=brewery_amenities.dance_floor)
+                            span Dance Floor
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="tv" checked=brewery_amenities.tv)
+                            span TV's
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="food_onsite" checked=brewery_amenities.food_onsite)
+                            span On Site Food
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="gift_shop" checked=brewery_amenities.gift_shop)
+                            span Gift Store/Merchandise
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="outdoor_games" checked=brewery_amenities.outdoor_games)
+                            span Outdoor Games
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="playing_cards" checked=brewery_amenities.playing_cards)
+                            span Playing Cards
+                    div.pure-u-1-4
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="food_truck" checked=brewery_amenities.food_truck)
+                            span Food Truck(s)
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="live_music" checked=brewery_amenities.live_music)
+                            span Live Music/Stage Area
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="board_games" checked=brewery_amenities.board_games)
+                            span Board Games
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="brewery_tours" checked=brewery_amenities.brewery_tours)
+                            span Brewery Tours
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="bar_games" checked=brewery_amenities.bar_games)
+                            span Bar Games
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="mug_club" checked=brewery_amenities.mug_club)
+                            span Mug Club
+                    div.pure-u-1-4
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="own_food" checked=brewery_amenities.own_food)
+                            span Bring Your Own Food
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="happy_hour" checked=brewery_amenities.happy_hour)
+                            span Happy Hour
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="liquor_bar" checked=brewery_amenities.liquor_bar)
+                            span Liquor Bar
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="wine_bar" checked=brewery_amenities.wine_bar)
+                            span Wine Bar
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="free_merchandise" checked=brewery_amenities.free_merchandise)
+                            span Free Merchandise
+                        div.pure-u-1(class="check_box_block")
+                            input(type="checkbox" name="drink_specials" checked=brewery_amenities.drink_specials)
+                            span Drink Specials
+                    button(type='submit' class='pure-button ondraft_button_primary' value='userInfo' style="margin-top: 10px;") Update Amenities

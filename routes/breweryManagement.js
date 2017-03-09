@@ -12,7 +12,7 @@ var queryDB = require('pg-promise');
 
 var rawBreweryInfoFetch = 'SELECT * FROM brewery_table WHERE user_id=$1::int LIMIT 1;';
 var rawBreweryCreationQuery = 'INSERT INTO brewery_table VALUES(' +
-    'DEFAULT, $1::int, $2::text, $3::text, $5::text, $6::text, $7::text, $8::text, $9::text, $10::text,' +
+    'DEFAULT, $1::int, $2::text, $3::text, $4::text, $5::text, $6::text, $7::text, $8::text, $9::text, $10::text,' +
     ' $11::text, $12::text, $13::text, $14::text, $15::text, $16::text, $17::text, $18::text' +
     ');';
 
@@ -52,7 +52,10 @@ router.get('/brewery-info', isLoggedIn, function (req, res) {
                         renderData['_csrf'] = req.csrfToken();
                         renderData['freshFlag'] = 'false';
                         renderData['message'] = req.query['message'];
-                        renderData['brewery_amenities'] = JSON.parse(renderData['brewery_amenities']);
+                        if (renderData['brewery_amenities'] !== '')
+                            renderData['brewery_amenities'] = JSON.parse(renderData['brewery_amenities']);
+                        else
+                            renderData['brewery_amenities'] = {};
                         console.log(renderData);
                         res.render('dashboardBreweryView', renderData);
                     }
@@ -114,6 +117,7 @@ router.post('/brewery-update', isLoggedIn, function (req, res) {
                 client.query(rawBreweryCreationQuery, [
                     req.user['userID'],
                     req.body['brewerySum'],
+                    '',
                     req.body['breweryAddress1'],
                     req.body['breweryAddress2'],
                     req.body['breweryCity'],
