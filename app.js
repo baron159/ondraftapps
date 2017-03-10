@@ -33,14 +33,12 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.use(session({
-//     secret: 'onDraftBestApp',
-//     cookie: {
-//         httpOnly: true,
-//         secure: true
-//     }
-// }));
-app.use(session({secret: 'onDraftBestApp'}));
+app.use(session({
+    secret: 'onDraftBestApp',
+    resave: true,
+    saveUninitialized: false
+}));
+// app.use(session({secret: 'onDraftBestApp'}));
 
 require('./lib/passportConfig')(passport);
 
