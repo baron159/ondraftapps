@@ -10,6 +10,7 @@ var csrfProtection = csurf({cookie:true});
 var cookieSession = require('cookie-session');
 var passport = require('passport');
 var flash = require('connect-flash');
+var firebase = require('firebase');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -45,6 +46,16 @@ require('./lib/passportConfig')(passport);
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+
+var firebaseConfig = {
+    apiKey: "AIzaSyDQQasQOJW3ZxRf7LLbLGcVAxrHHJYBZWA",
+    authDomain: "ondraftapp-5ae72.firebaseapp.com",
+    databaseURL: "https://ondraftapp-5ae72.firebaseio.com",
+    projectId: "ondraftapp-5ae72",
+    storageBucket: "ondraftapp-5ae72.appspot.com",
+    messagingSenderId: "1061853399218"
+};
+firebase.initializeApp(firebaseConfig);
 
 app.use(csrfProtection);
 app.use('/', index);

@@ -1,9 +1,8 @@
 'use strict';
 
 var express = require('express');
-var bcrypt = require('bcrypt');
 var router = express.Router();
-var passport = require('passport');
+var firebase = require('firebase');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -14,21 +13,18 @@ router.get('/', function(req, res, next) {
 
 router.post('/sign-in', function (req, res, next) {
     console.log(req.body);
-    passport.authenticate('local-login', function (err, user, info) {
-        if(err)
-            return next(err);
-        if(!user)
-            return res.redirect('/?message=User+Information+not+correct');
-        req.login(user, function (err) {
-            if(err)
-                return next(err);
+    firebase.auth().signInWithEmailAndPassword(req.body.userEmail, req.body.userPass)
+        .then(function () {
             return res.redirect('/dashboard/main');
+        })
+        .catch(function (error) {
+            console.error(error);
+            return res.redirect('/?message=User+Information+not+correct');
         });
-    })(req, res, next);
 });
 
 router.get('/log-out', function (req, res) {
-    req.logout();
+    firebase.auth().signOut();
     res.statusCode = 200;
     res.redirect('/?message=User+has+been+logged+out+of+the+system');
 });
@@ -49,22 +45,39 @@ router.post('/register', function (req, res, next) {
         return;
     }
     else {
-        passport.authenticate('local-signup', function(err, info) {
-            if (err)
-                return next(err);
-
-            res.redirect('/?message=New+User+Created');
-
-        })(req, res, next);
-
+        firebase.auth().createUserWithEmailAndPassword(req.body.userEmail, req.body.userPass)
+            .then(function () {
+                var user = firebase.auth().currentUser;
+                user.updatePhoneNumber(req.body.userPhone)
+                    .then(function () {
+                        var userName = req.body.userLastName + ", " + req.body.userFirst;
+                        user.updateProfile({
+                            displayName: userName,
+                            photoURL: null
+                        })
+                            .then(function () {
+                                res.redirect('/?message=New+User+Created');
+                            })
+                            .catch(function (error) {
+                                console.error(error);
+                            })
+                    })
+                    .catch(function (error) {
+                        console.error(error);
+                    });
+            })
+            .catch(function (error) {
+                res.redirect('/?message=Error+Please+Try+Again');
+                console.error(error);
+            });
     }
 });
 
 function isLoggedIn(req, res, next) {
-
+    var user = firebase.auth().currentUser;
     // if user is authenticated in the session, carry on
-    if (req.isAuthenticated()) {
-        console.log('isLoggedin');
+    if (user) {
+        console.info('INDEX LOGGED IN CHECK PASS: ' + user.uid + " is the ID of the current User");
         return next();
     }
     console.log('is not logged in');
