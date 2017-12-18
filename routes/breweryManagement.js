@@ -7,6 +7,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var draftDB = require('../lib/onDraftDB');
+var firebase = require('firebase');
 
 var queryDB = require('pg-promise');
 
@@ -24,6 +25,27 @@ var rawBreweryUpdateQuery = 'UPDATE brewery_table SET ' +
     'WHERE user_id=$18::int AND brewery_id=$19::int;';
 
 var rawBreweryAmenitiesQuery = 'UPDATE brewery_table SET brewery_amenities=$1::text WHERE user_id=$2::int AND brewery_id=$3::int;';
+
+var breweryObject = {
+    name: '',
+    brewerySummary: '',
+    breweryAddress1:'',
+    breweryAddress2:'',
+    breweryCity:'',
+    breweryState:'',
+    breweryZip:'',
+    breweryLat:0.0,
+    breweryLong:0.0,
+    breweryHoursMon:'',
+    breweryHoursTue:'',
+    breweryHoursWed:'',
+    breweryHoursThr:'',
+    breweryHoursFri:'',
+    breweryHoursSat:'',
+    breweryHoursSun:'',
+    breweryAmenities:[]
+
+};
 
 router.get('/main', isLoggedIn, function (req, res) {
     res.render('mainDashboard', {message: req.query['message']});
@@ -106,94 +128,40 @@ router.post('/brewery-amenities-update', isLoggedIn, function (req, res) {
 
 router.post('/brewery-update', isLoggedIn, function (req, res) {
     console.log(req.body);
-    draftDB.draftDB.connect(function (err, client, done) {
-        if(err){
-            console.error('ERROR - Unable to get a client');
-            res.statusCode = 501;
-            res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update+Service+is+unavailable+at+this+time');
-        }
-        else{
-            if(req.body['freshUpdate'] == 'true') {
-                client.query(rawBreweryCreationQuery, [
-                    req.user['userID'],
-                    req.body['brewerySum'],
-                    '',
-                    req.body['breweryAddress1'],
-                    req.body['breweryAddress2'],
-                    req.body['breweryCity'],
-                    req.body['breweryState'],
-                    req.body['breweryZip'],
-                    '0.0', //req.body[''], TODO: Implement a lat Look up for the given address
-                    '0.0', //req.body[''], TODO: Implement a long look up for the given address
-                    req.body['breweryMonday'],
-                    req.body['breweryTuesday'],
-                    req.body['breweryWednesday'],
-                    req.body['breweryThursday'],
-                    req.body['breweryFriday'],
-                    req.body['brewerySaturday'],
-                    req.body['brewerySunday'],
-                    req.body['breweryName']
-                ], function (err, results) {
-                    done();
-                    if (err) {
-                        console.error('ERROR - Problem with query');
-                        console.error(err);
-                        console.error(results);
-                        res.statusCode = 501;
-                        res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update+Service+is+unavailable+at+this+time');
-                    }
-                    else {
-                        res.statusCode = 300;
-                        res.redirect('/dashboard/brewery-info?message=Brewery+Info+Updated');
-                    }
-                })
-            }
-            else {
-                client.query(rawBreweryUpdateQuery, [
-                    req.body['brewerySum'],
-                    req.body['breweryFeatures'],
-                    req.body['breweryAddress1'],
-                    req.body['breweryAddress2'],
-                    req.body['breweryCity'],
-                    req.body['breweryState'],
-                    req.body['breweryZip'],
-                    '0.0', //req.body[''], TODO: Implement a lat Look up for the given address
-                    '0.0', //req.body[''], TODO: Implement a long look up for the given address
-                    req.body['breweryMonday'],
-                    req.body['breweryTuesday'],
-                    req.body['breweryWednesday'],
-                    req.body['breweryThursday'],
-                    req.body['breweryFriday'],
-                    req.body['brewerySaturday'],
-                    req.body['brewerySunday'],
-                    req.body['breweryName'],
-                    req.user['userID'],
-                    parseInt(req.body['breweryId'])
-                ], function (err, result) {
-                    done();
-                    if (err) {
-                        console.error('ERROR - Problem with query');
-                        console.error(err);
-                        res.statusCode = 501;
-                        res.redirect('/dashboard/brewery-info?message=Brewery+Profile+Update+Service+is+unavailable+at+this+time');
-                    }
-                    else {
-                        res.statusCode = 300;
-                        res.redirect('/dashboard/brewery-info?message=Brewery+Info+Updated');
-                    }
-                })
-            }
+    firebase.database().ref('users/' + firebase.auth().currentUser.uid).set({
+        brewery:{
+            name: req.body['breweryName'],
+            brewerySummary: req.body['brewerySum'],
+            breweryAddress1:req.body['breweryAddress1'],
+            breweryAddress2:req.body['breweryAddress2'],
+            breweryCity:req.body['breweryCity'],
+            breweryState:req.body['breweryState'],
+            breweryZip:req.body['breweryZip'],
+            breweryLat:0.0,
+            breweryLong:0.0,
+            breweryHoursMon:req.body['breweryMonday'],
+            breweryHoursTue:req.body['breweryTuesday'],
+            breweryHoursWed:req.body['breweryWednesday'],
+            breweryHoursThr:req.body['breweryThursday'],
+            breweryHoursFri:req.body['breweryFriday'],
+            breweryHoursSat:req.body['brewerySaturday'],
+            breweryHoursSun:req.body['brewerySunday'],
+            breweryAmenities:[]
         }
     })
+        .then(function () {
+            res.statusCode = 300;
+            res.redirect('/dashboard/brewery-info?message=Brewery+Info+Updated');
+        });
+
 });
 
-
-
 function isLoggedIn(req, res, next) {
-
+    var user = firebase.auth().currentUser;
     // if user is authenticated in the session, carry on
-    if (req.isAuthenticated()) {
-        console.log('is Logged in');
+    if (user) {
+        console.log('ACCOUNT MANAGEMENT PASS: ' + user.uid + " UID of current user");
+        console.log(req.user);
         return next();
     }
     console.log('is not logged in');
